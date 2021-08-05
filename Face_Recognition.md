@@ -69,6 +69,7 @@ $L_{\text {Cosine }}=-\frac{1}{m} \sum_{i=1}^{m} \log \left(\frac{e^{s \cdot\lef
 
 与SphereFace相比，CosineFace最明显的变化就是将cos(**t⋅θyi**)中的t提出来变成**cos(θyi)−t**，
 与之前相比，这样有几个明显的优势。
+- A-Softmax的倍角计算是要通过倍角公式，反向传播时不方便求导；
 - 相对于SphereFace而言要更加容易实现，移除了φ(θyi)，减少了复杂的参数计算
 - 去除了Softmax监督约束，训练过程变得简洁同时也能够实现收敛
 - 模型性能有明显的改善
@@ -76,7 +77,20 @@ $L_{\text {Cosine }}=-\frac{1}{m} \sum_{i=1}^{m} \log \left(\frac{e^{s \cdot\lef
 
 
 ### Angular Margin Loss(ArcFace)
+![A1](./imgs/Face_Recognition/Arcface.png) 
+![A2](./imgs/Face_Recognition/Arcface2.png) 
+尽管在余弦范围到角度范围的映射具有一对一的关系，但他们之间仍有不同之处，
+事实上，实现角度空间内最大化分类界限相对于余弦空间而言具有更加清晰的几何解释性，
+角空间中的边缘差距也相当于超球面上的弧距。
+所以Arcface作者提出了Angular Margin Loss，**将角度边缘t置于cos(θ)函数内部**，
+使得**cos(θ+t)在θ∈[0,π−t]范围内要小于cos(θ)**，这一约束使得整个分类任务的要求变得更加苛刻。
+
 $L_{\text {Arcface }}=-\frac{1}{m} \sum_{i=1}^{m} \log \left(\frac{e^{s \cdot\left(\cos \left(\theta_{y_{i}}+t\right)\right)}}{e^{s \cdot\left(\cos \left(\theta_{y_{i}}+t\right)\right)}+\sum_{j=1, j \neq y_{i}}^{n} e^{s \cdot \cos \theta_{j}}}\right)$
+
+对于$\cos (\theta+t)$可以由$\cos (\theta+t)=\cos \theta \operatorname{cost}-\sin \theta \sin t$
+获得，对比CosineLoss的$\cos (\theta)-t$，Arcface的形式不仅简单，还动态依赖于$\sin (\theta)$, 
+使得网络能够学习到更多的角度特性。
+![A3](./imgs/Face_Recognition/Arcface3.png) 
 
 
 ### Circle loss
@@ -85,3 +99,14 @@ $L_{\text {Arcface }}=-\frac{1}{m} \sum_{i=1}^{m} \log \left(\frac{e^{s \cdot\le
 ### MagFace
 
 
+## Summary
+| 损失函数   | 公式                                                                                                                                     | 备注 |
+|------------|------------------------------------------------------------------------------------------------------------------------------------------|------|
+| softmax    | $L_{S}=-\frac{1}{m} \sum_{i=1}^{m} \log \left(\frac{e^{W_{y_{i}}^{T} x_{i}+b_{y_{i}}}}{\sum_{j=1}^{n} e^{W_{j}^{T} x_{i}+b_{j}}}\right)$
+| <++>       |
+| A-softmax  | <++>                                                                                                                                     | <++> |
+| CosineLoss | <++>                                                                                                                                     | <++> |
+| AM-softmax | <++>                                                                                                                                     | <++> |
+| Arcface    | <++>                                                                                                                                     | <++> |
+| Circle     | <++>                                                                                                                                     | <++> |
+| MagFace    | <++>                                                                                                                                     | <++> |
