@@ -25,11 +25,16 @@ $L_{S o f t m a x}=-\frac{1}{m} \sum_{i=1}^{m} \log \left(\frac{e^{\left\|W y_{i
 
 作者对其进行改进，在中约束了$\|\mathrm{W}\|=1$和$\mathbf{b j}=\mathbf{0}$, 
 并将$e^{\left\|x_{i}\right\| \cdot \cos \theta_{y_{i}}}$从$\sum_{j=1}^{n} e^{\left\|x_{i}\right\| \cdot \cos \theta_{j}}$区分出来, 
-就是为了让特征学习到更可分的角度特性。通过这样的损失函数学习，可以使得学习到的特征具有更明显的角分布，因为决策边界只与角相关
-
+就是为了让特征学习到更可分的角度特性。通过这样的损失函数学习，可以使得学习到的特征具有更明显的角分布，因为决策边界只与角相关。
 
 $L_{\text {modified }{0}}=-\frac{1}{m} \sum_{i=1}^{m} \log \left(\frac{e^{\left\|x_{i}\right\| \cdot \cos \theta_{i}}}{e^{\left\|x_{i}\right\| \cdot \cos \theta_{y_{i}}+} \sum_{j=1, j \neq y_{i}}^{n} e^{\left\|x_{i}\right\| \cdot \cos \theta_{j}}}\right)$
 
+原始softmax的目的是$W_{1} * x>W_{2} * x$，即$\|W 1\| *\|x\| * \cos (\theta 1)>\|W 2\| *\|x\| * \cos (\theta 2)$, 从而得到x的正确分类。当$\|\mathrm{W}\|=1$和$\mathbf{b j}=\mathbf{0}$时，
+即$\cos (\theta 1)>\cos (\theta 2)$（cos为单调递减函数, $\theta \in\left[0, {\pi}\right]$）。
+
+如果使用$\cos \left(t \theta_{1}\right)>\cos \left(\theta_{2}\right)$判定, 这样判定规则更严格，
+将同类数据压缩到一个紧致空间，同时拉大类间间距；
+当$\theta_{1}<\frac{\theta_{2}}{t}$才会判定为类别1；
 
 
 ### Cosine Margin Loss
