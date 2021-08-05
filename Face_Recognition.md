@@ -28,7 +28,7 @@ $L_{S o f t m a x}=-\frac{1}{m} \sum_{i=1}^{m} \log \left(\frac{e^{\left\|W y_{i
 就是为了让特征学习到更可分的角度特性。通过这样的损失函数学习，可以使得学习到的特征具有更明显的角分布，因为决策边界只与角相关
 
 
-$L_{\text {modified }_{0}}=-\frac{1}{m} \sum_{i=1}^{m} \log \left(\frac{e^{\left\|x_{i}\right\| \cdot \cos \theta_{i}}}{e^{\left\|x_{i}\right\| \cdot \cos \theta_{y_{i}}+} \sum_{j=1, j \neq y_{i}}^{n} e^{\left\|x_{i}\right\| \cdot \cos \theta_{j}}}\right)$
+$L_{\text {modified }{0}}=-\frac{1}{m} \sum_{i=1}^{m} \log \left(\frac{e^{\left\|x_{i}\right\| \cdot \cos \theta_{i}}}{e^{\left\|x_{i}\right\| \cdot \cos \theta_{y_{i}}+} \sum_{j=1, j \neq y_{i}}^{n} e^{\left\|x_{i}\right\| \cdot \cos \theta_{j}}}\right)$
 
 
 
