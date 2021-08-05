@@ -44,6 +44,17 @@ $L_{\text {SphereFace }}=-\frac{1}{m} \sum_{i=1}^{m} \log \left(\frac{e^{\left\|
 
 $\varphi\left(\theta_{y_{i}}\right)=(-1)^{k} \cos \left(t \cdot \theta_{y_{i}}\right)-2 k, \theta_{y_{i}} \in\left[\frac{k \pi}{t}, \frac{(k+1) \pi}{t}\right], k \in[0, t-1]$
 
+在SphereFace的实际训练过程中，作者发现引入Softmax约束可以保证模型的收敛性。因此，对φ(θyi)函数做了变更，并同时用参数λ来控制二者的比重。
+
+$\varphi\left(\theta_{y_{i}}\right)=\frac{(-1)^{k} \cos \left(t \cdot \theta_{y_{i}}\right)-2 k+\lambda \cdot \cos \left(\theta_{y_{i}}\right)}{1+\lambda}$
+
+后续的F-Norm SphereFace对SphereFace做了更新，仅注重从数据中得到的角度信息，而不考虑特征向量的值，所以采用了s=64作为特征归一化参数替代了||x||，因此公式更新为： 
+
+$L_{F-N o r m-S p h e r e F a c e}=-\frac{1}{m} \sum_{i=1}^{m} \log \left(\frac{e^{s \cdot \varphi\left(\theta_{y_{i}}\right)}}{e^{s \cdot \varphi\left(\theta_{y_{i}}\right)}+\sum_{j=1, j \neq y_{i}}^{n} e^{s \cdot \cos \theta_{j}}}\right), \theta_{y_{i}} \in\left[0, \frac{\pi}{t}\right]$
+
+而这种采用了s=64作为特征归一化参数替代了||x||||x||的思想也被Cosine Loss和Arcface Loss沿用，即相对于距离信息更加关注角度信息。
+
+
 
 ### Cosine Margin Loss
 
