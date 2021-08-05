@@ -36,6 +36,14 @@ $L_{\text {modified }{0}}=-\frac{1}{m} \sum_{i=1}^{m} \log \left(\frac{e^{\left\
 将同类数据压缩到一个紧致空间，同时拉大类间间距；
 当$\theta_{1}<\frac{\theta_{2}}{t}$才会判定为类别1；
 
+$L_{\text {modified }{1}}=-\frac{1}{m} \sum_{i=1}^{m} \log \left(\frac{e^{\left\|x_{i}\right\| \cdot \cos \left(t \cdot \theta_{y_{i}}\right)}}{e^{\left\|x_{i}\right\| \cdot \cos \left(t \cdot \theta_{y_{i}}\right)}+\sum_{j=1, j \neq y_{i}}^{n} e^{\left\|x_{i}\right\| \cdot \cos \theta_{j}}}\right), \theta_{y_{i}} \in\left[0, \frac{\pi}{t}\right]$
+
+由于cosθ在[0,π]上单调递减，因此θ有上界，为了使得这个函数随角度单调递减，作者构造一个函数去代替cosθ;
+
+$L_{\text {SphereFace }}=-\frac{1}{m} \sum_{i=1}^{m} \log \left(\frac{e^{\left\|x_{i}\right\| \cdot \varphi\left(\theta_{y_{i}}\right)}}{e^{\left\|x_{i}\right\| \cdot \varphi\left(\theta_{y_{i}}\right)}+\sum_{j=1, j \neq y_{i}}^{n} e^{|| x_{i}|| \cdot \cos \theta_{j}}}\right), \theta_{y_{i}} \in\left[0, \frac{\pi}{t}\right]$
+
+$\varphi\left(\theta_{y_{i}}\right)=(-1)^{k} \cos \left(t \cdot \theta_{y_{i}}\right)-2 k, \theta_{y_{i}} \in\left[\frac{k \pi}{t}, \frac{(k+1) \pi}{t}\right], k \in[0, t-1]$
+
 
 ### Cosine Margin Loss
 
