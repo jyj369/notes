@@ -107,9 +107,10 @@ $L_{\text {Arcface }}=-\frac{1}{m} \sum_{i=1}^{m} \log \left(\frac{e^{s \cdot\le
 | 损失函数   | 公式                                                                                                                                                                                                                                               | 备注  |
 |------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------|
 | softmax    | $L_{S}=-\frac{1}{m} \sum_{i=1}^{m} \log \left(\frac{e^{W_{y_{i}}^{T} x_{i}+b_{y_{i}}}}{\sum_{j=1}^{n} e^{W_{j}^{T} x_{i}+b_{j}}}\right)$                                                                                                           | <++>  |
-| A-softmax  | $L_{\text {SphereFace }}=-\frac{1}{m} \sum_{i=1}^{m} \log \left(\frac{e^{\left\\|x_{i}\right\\| \cdot \varphi\left(\theta_{y_{i}}\right)}}{e^{\left\\|x_{i}\right\\| \cdot \varphi\left(\theta_{y_{i}}\right)}+\sum_{j=1, j \neq y_{i}}^{n} e^{ \| \| x_{i} \|  \| \cdot \cos \theta_{j}}}\right), \theta_{y_{i}} \in\left[0, \frac{\pi}{t}\right]$ | <++> |
-| CosineLoss | <++>                                                                                                                                                                                                                                               | <++>  |
-| AM-softmax | <++>                                                                                                                                                                                                                                               | <++>  |
-| Arcface    | <++>                                                                                                                                                                                                                                               | <++>  |
-| Circle     | <++>                                                                                                                                                                                                                                               | <++>  |
-| MagFace    | <++>                                                                                                                                                                                                                                               | <++>  |
+| A-softmax  | $L_{\text {SphereFace }}=-\frac{1}{m} \sum_{i=1}^{m} \log \left(\frac{e^{\left\\|x_{i}\right\\| \cdot \varphi\left(\theta_{y_{i}}\right)}}{e^{\left\\|x_{i}\right\\| \cdot \varphi\left(\theta_{y_{i}}\right)}+\sum_{j=1, j \neq y_{i}}^{n} e^{ \| \| x_{i} \|  \| \cdot \cos \theta_{j}}}\right), \theta_{y_{i}} \in\left[0, \frac{\pi}{t}\right]$ | $\varphi\left(\theta_{y_{i}}\right)=(-1)^{k} \cos \left(t \cdot \theta_{y_{i}}\right)-2 k, \theta_{y_{i}} \in\left[\frac{k \pi}{t}, \frac{(k+1) \pi}{t}\right], k \in[0, t-1]$
+|
+| CosineLoss | <++> | <++> |
+| AM-softmax | <++> | <++> |
+| Arcface    | <++> | <++> |
+| Circle     | <++> | <++> |
+| MagFace    | <++> | <++> |
