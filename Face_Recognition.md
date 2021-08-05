@@ -92,6 +92,8 @@ $L_{\text {Arcface }}=-\frac{1}{m} \sum_{i=1}^{m} \log \left(\frac{e^{s \cdot\le
 对于$\cos (\theta+t)$可以由$\cos (\theta+t)=\cos \theta \operatorname{cost}-\sin \theta \sin t$
 获得，对比CosineLoss的$\cos (\theta)-t$，Arcface的形式不仅简单，还动态依赖于$\sin (\theta)$, 
 使得网络能够学习到更多的角度特性。
+
+
 ![A3](./imgs/Face_Recognition/Arcface3.png) 
 
 
@@ -102,12 +104,12 @@ $L_{\text {Arcface }}=-\frac{1}{m} \sum_{i=1}^{m} \log \left(\frac{e^{s \cdot\le
 
 
 ## Summary
-| 损失函数   | 公式                                                                                                                                     | 备注 |
-|------------|------------------------------------------------------------------------------------------------------------------------------------------|------|
-| softmax    | $L_{S}=-\frac{1}{m} \sum_{i=1}^{m} \log \left(\frac{e^{W_{y_{i}}^{T} x_{i}+b_{y_{i}}}}{\sum_{j=1}^{n} e^{W_{j}^{T} x_{i}+b_{j}}}\right)$ | <++> |
-| A-softmax  | <++>                                                                                                                                     | <++> |
-| CosineLoss | <++>                                                                                                                                     | <++> |
-| AM-softmax | <++>                                                                                                                                     | <++> |
-| Arcface    | <++>                                                                                                                                     | <++> |
-| Circle     | <++>                                                                                                                                     | <++> |
-| MagFace    | <++>                                                                                                                                     | <++> |
+| 损失函数   | 公式                                                                                                                                                                                                                                        | 备注 |
+|------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|
+| softmax    | $L_{S}=-\frac{1}{m} \sum_{i=1}^{m} \log \left(\frac{e^{W_{y_{i}}^{T} x_{i}+b_{y_{i}}}}{\sum_{j=1}^{n} e^{W_{j}^{T} x_{i}+b_{j}}}\right)$                                                                                                    | <++> |
+| A-softmax  | $L_{\text {SphereFace }}=-\frac{1}{m} \sum_{i=1}^{m} \log \left(\frac{e^{\left\|x_{i}\right\| \cdot \varphi\left(\theta_{y_{i}}\right)}}{e^{\left\|x_{i}\right\| \cdot \varphi\left(\theta_{y_{i}}\right)}+\sum_{j=1, j \neq y_{i}}^{n} e^{ |      | x_{i} |  | \cdot \cos \theta_{j}}}\right), \theta_{y_{i}} \in\left[0, \frac{\pi}{t}\right]$ | <++> |
+| CosineLoss | <++>                                                                                                                                                                                                                                        | <++> |
+| AM-softmax | <++>                                                                                                                                                                                                                                        | <++> |
+| Arcface    | <++>                                                                                                                                                                                                                                        | <++> |
+| Circle     | <++>                                                                                                                                                                                                                                        | <++> |
+| MagFace    | <++>                                                                                                                                                                                                                                        | <++> |
