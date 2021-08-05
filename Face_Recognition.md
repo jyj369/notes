@@ -79,6 +79,8 @@ $L_{\text {Cosine }}=-\frac{1}{m} \sum_{i=1}^{m} \log \left(\frac{e^{s \cdot\lef
 ### Angular Margin Loss(ArcFace)
 ![A1](./imgs/Face_Recognition/Arcface.png) 
 ![A2](./imgs/Face_Recognition/Arcface2.png) 
+
+
 尽管在余弦范围到角度范围的映射具有一对一的关系，但他们之间仍有不同之处，
 事实上，实现角度空间内最大化分类界限相对于余弦空间而言具有更加清晰的几何解释性，
 角空间中的边缘差距也相当于超球面上的弧距。
@@ -102,8 +104,7 @@ $L_{\text {Arcface }}=-\frac{1}{m} \sum_{i=1}^{m} \log \left(\frac{e^{s \cdot\le
 ## Summary
 | 损失函数   | 公式                                                                                                                                     | 备注 |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------|------|
-| softmax    | $L_{S}=-\frac{1}{m} \sum_{i=1}^{m} \log \left(\frac{e^{W_{y_{i}}^{T} x_{i}+b_{y_{i}}}}{\sum_{j=1}^{n} e^{W_{j}^{T} x_{i}+b_{j}}}\right)$
-| <++>       |
+| softmax    | $L_{S}=-\frac{1}{m} \sum_{i=1}^{m} \log \left(\frac{e^{W_{y_{i}}^{T} x_{i}+b_{y_{i}}}}{\sum_{j=1}^{n} e^{W_{j}^{T} x_{i}+b_{j}}}\right)$ | <++> |
 | A-softmax  | <++>                                                                                                                                     | <++> |
 | CosineLoss | <++>                                                                                                                                     | <++> |
 | AM-softmax | <++>                                                                                                                                     | <++> |
