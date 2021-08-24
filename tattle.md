@@ -1,3 +1,5 @@
+### Label Assign
+
 **yolov5的标签分配：我认为是先fixed再adaptive**
 1. 首先通过尺度scale，和offset分配好anchor(fixed);
 2. 在回归bbox的时候是在用iou loss(CIOU), 在回归objectness的时候是采用CIOU值作为target,
@@ -43,3 +45,33 @@
 	- 但是, 如果说在标签分配层面能够做的比较好，分配给GT的都是高质量的anchor，那其实class score/objectness是采用iou值还是1就区别不是很大了,
 		可能会有一些网络收敛上的不同;
 	- 或许可以根据将class score/objectness的回归targets改成iou值和1，分别实验，看差距来断定当前模型的标签分配策略是否较好;
+
+
+
+### 匈牙利算法与OTA
+
+**匈牙利算法** 
+
+匈牙利算法是为了实现更多的匹配对，在最小化cost矩阵的情况下，实现最多的匹配对，要求矩阵rows与cols不一致；
+
+example：
+- cost matrix shape [a, b], where a > b, 匈牙利算法返回b个匹配对，使得cost最小；
+
+**OTA** 
+
+(算法中GT与anchor分别对应下述的a和b)
+
+OTA是最优运输问题，通过最小的cost将一个概率分布转化为另一个概率分布；
+
+example:
+- cost matrix shape [a, b], 假设a > b, OTA将a分配给b，即b中某个元素可获得多个a中元素，使得全局cost最小；
+- 假设a > b, OTA将a分配给b，尽管b中某个元素可获得多个a中元素, 但两个b不会获得同一个a中的元素；
+- 也可以指定每个b元素需求a的个数；
+
+
+**SimOTA**
+
+SimOTA就是单纯的将cost最小的topk分配出来，再针对重复分配的元素，再选取一个cost最小的进行分配；
+
+example:
+- 即对于cost matrix shape [a, b], 假设a > b, SimOTA就是针对每一个b对应的cost，选取最小的topk个作为分配，再对于这其中重复分配到a中某元素的，再比较cost，选取cost最小的b元素得到这个a元素, 其他的b则舍弃该a元素；
