@@ -101,3 +101,4 @@ SimOTA就是单纯的将cost最小的topk分配出来，再针对重复分配的
 
 example:
 - 即对于cost matrix shape [a, b], 假设a > b, SimOTA就是针对每一个b对应的cost，选取最小的topk个作为分配，再对于这其中重复分配到a中某元素的，再比较cost，选取cost最小的b元素得到这个a元素, 其他的b则舍弃该a元素；
+- 相比于标准OTA，这样其实舍弃了一部分的anchor来分配；
