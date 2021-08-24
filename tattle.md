@@ -57,6 +57,12 @@
 example：
 - cost matrix shape [a, b], where a > b, 匈牙利算法返回b个匹配对，使得cost最小；
 
+```python
+similarity = cosine_similarity(s1, s2)
+row_ind, col_ind = linear_sum_assignment(1 - similarity)
+```
+
+
 **OTA** 
 
 (算法中GT与anchor分别对应下述的a和b)
@@ -102,3 +108,30 @@ SimOTA就是单纯的将cost最小的topk分配出来，再针对重复分配的
 example:
 - 即对于cost matrix shape [a, b], 假设a > b, SimOTA就是针对每一个b对应的cost，选取最小的topk个作为分配，再对于这其中重复分配到a中某元素的，再比较cost，选取cost最小的b元素得到这个a元素, 其他的b则舍弃该a元素；
 - 相比于标准OTA，这样其实舍弃了一部分的anchor来分配；
+
+```python
+n_candidate_k = min(10, ious_in_boxes_matrix.size(1))
+# 选取iou最高的前n_candidate_k个, [n_gt, n_candidate_k]
+topk_ious, _ =  torch.topk(ious_in_boxes_matrix, n_candidate_k, dim=1)
+# 根据iou的总和来动态选择每个gt选择多少个positive， [n_gt, ]
+dynamic_ks = torch.clamp(topk_ious.sum(1).int(), min=1)
+for gt_idx in range(num_gt):
+    _, pos_idx = torch.topk(
+        cost[gt_idx], k=dynamic_ks[gt_idx].item(), largest=False
+    )
+    matching_matrix[gt_idx][pos_idx] = 1.0
+
+del topk_ious, dynamic_ks, pos_idx
+
+# [n_pos_anchors, ], 每个positive分配到的gt总数
+anchor_matching_gt = matching_matrix.sum(0)
+# 对于那些同一个positive分到给到了多个gt的,
+# 选取他们之间cost最小的gt匹配，其他的不匹配
+if (anchor_matching_gt > 1).sum() > 0:
+    # 找到每个positive对应cost最小的gt索引
+    _, cost_argmin = torch.min(cost[:, anchor_matching_gt > 1], dim=0)
+    # 先将所有anchor_matching_gt > 1的matching重置
+    matching_matrix[:, anchor_matching_gt > 1] *= 0.0
+    # 再将cost最小的gt设置匹配
+    matching_matrix[cost_argmin, anchor_matching_gt > 1] = 1.0
+```
