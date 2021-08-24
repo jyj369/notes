@@ -65,8 +65,34 @@ OTA是最优运输问题，通过最小的cost将一个概率分布转化为另�
 
 example:
 - cost matrix shape [a, b], 假设a > b, OTA将a分配给b，即b中某个元素可获得多个a中元素，使得全局cost最小；
-- 假设a > b, OTA将a分配给b，尽管b中某个元素可获得多个a中元素, 但两个b不会获得同一个a中的元素；
-- 也可以指定每个b元素需求a的个数；
+- 假设a > b, OTA将a分配给b，尽管b中某个元素可获得多个a中元素, **但两个b不会获得同一个a中的元素**；
+- 也可以指定每个b元素需求a的个数, **但指定总个数要与a的总个数相同**；
+
+OTA部分代码
+```python
+# 选取topk个iou，(num_gt, k)
+topk_ious, _ = torch.topk(ious * is_in_boxes.float(), self.top_candidates, dim=1)
+# 初始化gt需求个数，+1表示bg, (num_gt + 1, )
+mu = ious.new_ones(num_gt + 1)
+# 将topk选取的iou求和来获取每个gt的dynamic k
+mu[:-1] = torch.clamp(topk_ious.sum(1).int(), min=1).float()
+# 因为标准OT问题，商品与需求数量要一致，所以将剩下的归为bg
+mu[-1] = num_anchor - mu[:-1].sum()
+# 初始化anchor，每个anchor为一个商品，每个初始化为1, (num_anchors, )
+nu = ious.new_ones(num_anchor)
+# 得到cost, (num_gt, num_anchor)
+loss = torch.cat([loss, loss_cls_bg.unsqueeze(0)], dim=0)
+
+# Solving Optimal-Transportation-Plan pi via Sinkhorn-Iteration.
+# 计算运输距离
+_, pi = self.sinkhorn(mu, nu, loss)
+
+# Rescale pi so that the max pi for each gt equals to 1.
+rescale_factor, _ = pi.max(dim=1)
+pi = pi / rescale_factor.unsqueeze(1)
+
+max_assigned_units, matched_gt_inds = torch.max(pi, dim=0)
+```
 
 
 **SimOTA**
