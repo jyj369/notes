@@ -135,3 +135,18 @@ if (anchor_matching_gt > 1).sum() > 0:
     # 再将cost最小的gt设置匹配
     matching_matrix[cost_argmin, anchor_matching_gt > 1] = 1.0
 ```
+
+### Sample imbalance
+
+**UMOP**
+1. 对每个特征层级分别求loss再做均值，来平衡各个层级的loss
+2. 可调节参数的Progressive focal loss也只能缓解某一层特征层的采样不平衡问题
+
+我觉得应该是1和2一起才能有平衡各个层及之间的采样不平衡，首先1简单平衡了各个层及的loss与收敛，
+影响了Progressive focal loss的参数(其参数是根据训练的情况来自动调节的)，再通过参数调节每层的平衡情况，
+变相的影响各个特征层之间的平衡；
+
+其实yolov5应该注意到了各个特征层级之间的不平衡，所以才会设置balance这个参数组去调节objectness的loss，
+所以yolov5计算损失是按照特征层级来计算的，有些框架是按照batch这个维度来计算损失的；
+mmdetection也是按照特征层的维度计算的；
+
