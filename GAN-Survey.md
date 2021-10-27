@@ -1,3 +1,16 @@
+
+* [相关工作](#相关工作)
+  - [GANs结构与公式](#gans结构与公式)
+  - [GANs的挑战](#gans的挑战)
+  - [GAN的发展改进方向](#gan的发展改进方向)
+  - [GANs](#gans)
+    + [Basic GAN](#basic-gan)
+    + [Conditional GAN](#conditional-gan)
+    + [Auto-Encoders GAN](#auto-encoders-gan)
+    + [Progressive and Auxiliary Classifier GAN](#progressive-and-auxiliary-classifier-gan)
+    + [Adversarial Domain Adaptation](#adversarial-domain-adaptation)
+
+
 ## 相关工作
 ### GANs结构与公式
 ![F3](./imgs/GAN-Survey/F3.png) 

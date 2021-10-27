@@ -1,3 +1,15 @@
+* [Loss Function](#loss-function)
+  - [Softmax](#softmax)
+  - [Center loss](#center-loss)
+  - [A-Softmax Loss(SphereFace)](#a-softmax-losssphereface)
+  - [L-Softmax Loss](#l-softmax-loss)
+  - [Cosine Margin Loss](#cosine-margin-loss)
+  - [Angular Margin Loss(ArcFace)](#angular-margin-lossarcface)
+  - [Circle loss](#circle-loss)
+  - [MagFace](#magface)
+* [Summary](#summary)
+
+
 ## Loss Function
 ### Softmax
 $L_{S}=-\frac{1}{m} \sum_{i=1}^{m} \log \left(\frac{e^{W_{y_{i}}^{T} x_{i}+b_{y_{i}}}}{\sum_{j=1}^{n} e^{W_{j}^{T} x_{i}+b_{j}}}\right)$
