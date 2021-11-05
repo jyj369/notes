@@ -136,6 +136,16 @@ if (anchor_matching_gt > 1).sum() > 0:
     matching_matrix[cost_argmin, anchor_matching_gt > 1] = 1.0
 ```
 
+**Wasserstein Distance**
+- 常见的有很多衡量概率分布差异的度量方式，比如total variation（TRPO推导里面有用到），还有经常被用到的KL散度。
+- 相比于这些度量方式，Wasserstein距离有如下一些好处。
+  * 能够很自然地度量离散分布和连续分布之间的距离；
+  * 不仅给出了距离的度量，而且给出如何把一个分布变换为另一分布的方案；
+  * 能够连续地把一个分布变换为另一个分布，在此同时，能够保持分布自身的几何形态特征；
+- 最小化`Wasserstein Distance`得到最优运输的解；
+- ` Sinkhorn algorithm`(也就是OTA中的最优运输算法)是`Wasserstein Distance`的一种特殊情况, 为的是更快的迭代；
+- 详情见[http://www.stat.cmu.edu/~larry/=sml/Opt.pdf](http://www.stat.cmu.edu/~larry/=sml/Opt.pdf)
+
 ### Sample imbalance
 
 **UMOP**
