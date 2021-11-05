@@ -5,7 +5,7 @@
 * [实验](#实验)
 
 ## pipeline
-![Fig2](./imgs/yolox/Fig2.png) 
+![Fig2](../imgs/yolox/Fig2.png) 
 
 ## Optimal Transport
 最佳运输（OT）描述了以下问题：假设在某个领域中存在m个suppliers（供应者）和n个demanders（需求者,
@@ -14,26 +14,26 @@
 这是一个线性程序，可以在多项式时间内求解。 但是这样所得的线性程序很大，涉及特征维度的平方与所有尺度的anchor。
 因此，作者通过一个名为Sinkhorn-Knopp的快速迭代解决方案来解决此问题。
 
-![公式1](./imgs/yolox/e1.png) 
+![公式1](../imgs/yolox/e1.png) 
 
 ## OT for Label Assignment
 将标签分配看作是suppliers(label)和demanders(anchor)问题
 在目标检测的背景下，假设一张输入图片中有m个gt targets和n个anchors（所有FPN层的），
 将每个gt视作有k个单元的正标签（positive label）的suppliers(i.e., si = k, i = 1, 2, ..., m), 每个anchor视作需要一个单元标签的demander(i.e.,dj = 1, j = 1, 2, ..., n), 
 将一个单元的标签从gt<sub>i</sub>传到anchor<sub>j</sub>的代价c<sup>fg</sup>定义为它们cls和reg losses的加权相加;
-![公式2](./imgs/yolox/e2.png) 
+![公式2](../imgs/yolox/e2.png) 
 
 除了正标签，训练时大量的anchors还会被分配为负标签，成为负样本。
 由于最佳传输涉及所有的anchors，所以引入另一个supplier——background，它只提供负标签，
 并且提供的总数为n - m×k，从而使得总的supply等于总的demand。将一个单元的负标签从background传输到anchor a<sub>j</sub>的代价为:
-![公式3](./imgs/yolox/e3.png) 
-![公式4](./imgs/yolox/e4.png) 
+![公式3](../imgs/yolox/e3.png) 
+![公式4](../imgs/yolox/e4.png) 
 将这个cost拼接到cost矩阵中，得到π<sup>\*</sup>∈(m+1)xn
 
 通过Sinkhorn-Knopp迭代这个π<sup>\*</sup>
 
 **整体流程** 
-![Algorithm](./imgs/yolox/A.png) 
+![Algorithm](../imgs/yolox/A.png) 
 
 ## Advanced Designs
  - Center Prior: 
@@ -47,9 +47,9 @@ Center Prior 有利于OTA的训练。 强迫检测器将注意力集中在潜在
 具体来说，对于每个gt，我们根据IoU值选择top q预测。这些IoU值相加，以代表此gt的估计正锚数;
 
 ## 实验
-![f3](./imgs/yolox/F3.png) 
-![t2](./imgs/yolox/t2.png) 
-![SOTA](./imgs/yolox/t5.png) 
+![f3](../imgs/yolox/F3.png) 
+![t2](../imgs/yolox/t2.png) 
+![SOTA](../imgs/yolox/t5.png) 
 
 
 

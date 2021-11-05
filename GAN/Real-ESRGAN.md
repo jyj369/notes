@@ -16,7 +16,7 @@
 
 **paper**: [https://arxiv.org/pdf/2107.10833.pdf](https://arxiv.org/pdf/2107.10833.pdf) 
 
-![F1](./imgs/Real-ESRGAN/F1.png) 
+![F1](../imgs/Real-ESRGAN/F1.png) 
 ### Introduction
 单图像超分辨率(SR)是一个活跃的研究课题，旨在从其低分辨率(LR)对应的图像中重建一个高分辨率(HR)图像。
 自SRCNN的开创性工作以来，深度卷积神经网络(CNN)方法在SR领域带来了繁荣的发展。然而，（研究背景）大多数方法：
@@ -59,7 +59,7 @@ Blind SR的目标是将带有未知和复杂的退化的低分辨率图像恢复
 - 添加噪声n，可以得到低分辨率的x。
 - 降解过程D
 - JPEG压缩也广泛应用于JPEG压缩。
-![e1](./imgs/Real-ESRGAN/e1.png) 
+![e1](../imgs/Real-ESRGAN/e1.png) 
 
 #### Blur
 通常将模糊退化建模为与线性模糊滤波器（核）的卷积。Isotropic和anisotropic高斯滤波器是常见的选择。
@@ -68,12 +68,12 @@ Blind SR的目标是将带有未知和复杂的退化的低分辨率图像恢复
 - σ1和σ2是沿两个主轴的标准差（即协方差矩阵的特征值）
 - R是旋转矩阵 ,θ为旋转度
 - 当σ1=σ2时，k是各向同性高斯模糊核；否则k是各向异性核。
-![e2](./imgs/Real-ESRGAN/e2.png) 
+![e2](../imgs/Real-ESRGAN/e2.png) 
 Discuss：虽然高斯模糊核被广泛用于建模模糊退化，但它们可能不能很好地近似真实的相机模糊。为了包含更多样化的核形状，
 进一步采用了generalized Gaussian blur kernels和plateau-shaped distribution。
 probability density function (pdf)
-![e22](./imgs/Real-ESRGAN/e22.png) 
-![e23](./imgs/Real-ESRGAN/e23.png) 
+![e22](../imgs/Real-ESRGAN/e22.png) 
+![e23](../imgs/Real-ESRGAN/e23.png) 
 
 #### Noise
 - addictive Gaussian noise
@@ -101,15 +101,15 @@ JPEG压缩是一种常用的数字图像有损压缩技术。它首先将图像�
 压缩图像的质量由质量因子q∈[0,100]决定，其中较低的q表示较高的压缩比和较差的质量。使用PyTorch实现-[DiffJPEG](https://github.com/mlomnitz/DiffJPEG)。
 
 ### High-order Degradation Model
-![e5](./imgs/Real-ESRGAN/e5.png) 
-![F2](./imgs/Real-ESRGAN/F2.png) 
+![e5](../imgs/Real-ESRGAN/e5.png) 
+![F2](../imgs/Real-ESRGAN/F2.png) 
 
 ### Ringing and overshoot artifacts
-![F5](./imgs/Real-ESRGAN/F5.png) 
+![F5](../imgs/Real-ESRGAN/F5.png) 
 在图像中，环形伪影通常出现在虚假的边缘，它们在视觉上看起来像乐队或“鬼魂”。 超调伪影通常与环形伪影结合，这些伪影表现为边缘过渡时的跳跃
 主要导致这些伪影的原因在于：信号是带限的，没有高频。这些伪影非常常见，通常由锐化算法、JPEG压缩等产生。
 论文使用**sinc滤波器， 一个切断高频的理想滤波器，来合成训练对的环形和超调伪影**。sinc滤波器核可以表示为：
-![e6](./imgs/Real-ESRGAN/e6.png) 
+![e6](../imgs/Real-ESRGAN/e6.png) 
 其中（i、j）为核坐标，ωc为截止频率，J1为第一类的一阶贝塞尔函数
 
 **在两个方面采用sinc滤波器**：模糊过程和合成的最后一步。
@@ -121,13 +121,13 @@ JPEG压缩是一种常用的数字图像有损压缩技术。它首先将图像�
 采用与ESRGAN相同的生成器( SR网络)， 即具有多个residual-in-residual块(RRDB)的深度网络，如图4所示，还扩展了原始的×4ESRGAN架构， 
 以×2和×1的比例因子执行超分辨率。由于ESRGAN是一个较重的网络，首先使用pixel-unshuffle（pixel-unshuffle的逆操作）来减小空间大小和扩大通道大小，
 然后输入到主ESRGAN体系结构中。因此，大部分的计算是在较小的分辨率空间内进行的，这可以减少GPU内存和计算资源的消耗。
-![F4](./imgs/Real-ESRGAN/F4.png) 
+![F4](../imgs/Real-ESRGAN/F4.png) 
 
 #### U-Net discriminator with spectral normalization (SN)
 由于Real-ESRGAN的目标是**解决比ESRGAN更大的退化空间**，因此ESRGAN中鉴别器的原始设计已不再合适。
 具体来说，Real-ESRGAN中的鉴别器对复杂的训练输出需要更大的鉴别能力。它不需要区分全局样式， 而是需要为局部纹理产生准确的梯度反馈。
 因此，将ESRGAN中的VGG风格的鉴别器改进为具有跳层连接的U-Net设计。U-Net输出每个像素的真实度值，并可以向生成器提供详细的过像素反馈。
-![F6](./imgs/Real-ESRGAN/F6.png) 
+![F6](../imgs/Real-ESRGAN/F6.png) 
 
 #### The training process
 训练过程分为两个步骤：
@@ -141,6 +141,6 @@ JPEG压缩是一种常用的数字图像有损压缩技术。它首先将图像�
 - **锐化GT image**：进一步展示了一个训练技巧，以从视觉上提高锐度，同时不引入可见的伪影。锐化图像的一种典型方法是使用后处理算法，如不锐利的掩蔽(USM)。
 然而，该算法倾向于引入过调伪影。根据经验发现，在训练过程中锐化GT可以实现更好的锐度和超调伪影抑制的平衡。
 论文将用清晰的GT图像训练的模型表示为Real-ESRGAN+(比较如图7所示）。
-![F7](./imgs/Real-ESRGAN/F7.png) 
+![F7](../imgs/Real-ESRGAN/F7.png) 
 
 More details see [paper](https://arxiv.org/pdf/2107.10833.pdf) and [code](https://github.com/xinntao/Real-ESRGAN)

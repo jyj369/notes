@@ -7,7 +7,7 @@
       * [基于生成模型的像素级监督](#基于生成模型的像素级监督)
 
 
-![F56](./imgs/FAS-Survey/F56.png) 
+![F56](../imgs/FAS-Survey/F56.png) 
 
 ## Deep FAS with Commercial RGB Camera
 
@@ -17,10 +17,10 @@
 3. 人工设计的特征与CNN的特征融合进行判断
 
 **三种设计的结构**
-![F7](./imgs/FAS-Survey/F7.png) 
+![F7](../imgs/FAS-Survey/F7.png) 
 
 **Hybrid Method Summary**
-![T3](./imgs/FAS-Survey/T3.png) 
+![T3](../imgs/FAS-Survey/T3.png) 
 
 ### Common Deep Learning Method
 1. 直接使用二分类binary cross-entropy loss回归
@@ -28,11 +28,11 @@
 3. 生成模型
 
 **三种设计的结构**
-![F8](./imgs/FAS-Survey/F8.png) 
+![F8](../imgs/FAS-Survey/F8.png) 
 
 #### 直接使用二分类总结
-![T4_1](./imgs/FAS-Survey/T4_1.png) 
-![T4_2](./imgs/FAS-Survey/T4_2.png) 
+![T4_1](../imgs/FAS-Survey/T4_1.png) 
+![T4_2](../imgs/FAS-Survey/T4_2.png) 
 
 #### 像素级监督
 由于直接使用二分类回归的深度学习模型可能很容易学习不可靠的模式（例如，屏幕挡板）。

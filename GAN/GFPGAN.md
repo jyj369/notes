@@ -51,19 +51,19 @@ DPN的双路径结构能够对每条路径进行特征重用和新特征探索�
 
 ### Methodology
 #### Pipeline
-![pipeline](./imgs/GFPGAN/pipeline.png) 
+![pipeline](../imgs/GFPGAN/pipeline.png) 
 
 #### Degradation Removal Module
 图像包含有许多不同的退化因素。论文所提出的退化去除模块，用于提取清晰特征；
 本模块基于U-net网络模型，并提高大范围模糊的适应性和生成不同分辨率的特征。利用金字塔复原指导中间结果。
-![unet](./imgs/GFPGAN/unet.png) 
+![unet](../imgs/GFPGAN/unet.png) 
 
 #### Generative Facial Prior and Latent Code Mapping
-![Prior](./imgs/GFPGAN/Prior.png) 
+![Prior](../imgs/GFPGAN/Prior.png) 
 
 #### Channel-Split Spatial Feature Transform
-![stn1](./imgs/GFPGAN/stn1.png) 
-![stn2](./imgs/GFPGAN/stn2.png) 
+![stn1](../imgs/GFPGAN/stn1.png) 
+![stn2](../imgs/GFPGAN/stn2.png) 
 
 ### Model Objectives
 #### loss
@@ -73,17 +73,17 @@ DPN的双路径结构能够对每条路径进行特征重用和新特征探索�
 - 身份保留损失
 
 ##### Reconstruction Loss
-![loss1](./imgs/GFPGAN/loss1.png) 
+![loss1](../imgs/GFPGAN/loss1.png) 
 
 ##### Adversarial Loss
 生产真实纹理，类似于StyleGAN2，采用了Logistic Loss，训练全局的 Discriminator, 判断人脸是否真实
 
-![loss2](./imgs/GFPGAN/loss2.png) 
+![loss2](../imgs/GFPGAN/loss2.png) 
 
 ##### Facial Component Loss
 使用real与restored patches的Gram matrix statistics计算loss.
 Gram matrix statistics(k个向量之间两两的内积)能够的到feature统计信息并且能够有效的捕捉纹理信息；
-![loss3](./imgs/GFPGAN/loss3.png) 
+![loss3](../imgs/GFPGAN/loss3.png) 
 ```python
 def _comp_style(feat, feat_gt, criterion):
    return criterion(self._gram_mat(feat[0]), self._gram_mat(
@@ -92,13 +92,13 @@ def _comp_style(feat, feat_gt, criterion):
 ```
 
 ##### Identity Preserving Loss
-![loss4](./imgs/GFPGAN/loss4.png) 
+![loss4](../imgs/GFPGAN/loss4.png) 
 
 ##### Total loss
-![loss](./imgs/GFPGAN/loss.png) 
+![loss](../imgs/GFPGAN/loss.png) 
 
 #### degradation model
-![Removal](./imgs/GFPGAN/Removal.png) 
+![Removal](../imgs/GFPGAN/Removal.png) 
 
 ### Experiments and More details
 see [paper](https://arxiv.org/pdf/2101.04061.pdf) and [code](https://github.com/TencentARC/GFPGAN).

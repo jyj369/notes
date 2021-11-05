@@ -13,8 +13,8 @@
 
 ## 相关工作
 ### GANs结构与公式
-![F3](./imgs/GAN-Survey/F3.png) 
-![e1](./imgs/GAN-Survey/e1.png) 
+![F3](../imgs/GAN-Survey/F3.png) 
+![e1](../imgs/GAN-Survey/e1.png) 
 最开始GAN是用的FC层，后来随着CNN的发展转变到使用CNN。
 
 ### GANs的挑战
@@ -30,22 +30,22 @@
 
 
 ### GAN的发展改进方向
-![T2](./imgs/GAN-Survey/T2.png)
+![T2](../imgs/GAN-Survey/T2.png)
 
 ### GANs
 #### Basic GAN
-![F3.a](./imgs/GAN-Survey/F3.a.png)
+![F3.a](../imgs/GAN-Survey/F3.a.png)
 #### Conditional GAN
-![F3.bcd](./imgs/GAN-Survey/F3.bcd.png)
+![F3.bcd](../imgs/GAN-Survey/F3.bcd.png)
 - `infoGAN` and `ACGAN`
 - `BAGAN`
 
 #### Auto-Encoders GAN
-![F6](./imgs/GAN-Survey/F6.png)
+![F6](../imgs/GAN-Survey/F6.png)
 - Encoder-Decoder结构可以很好的学习到决定性的mapping, 可以很好的复原图片。
 - Auto-Encoders生成的图片是模糊的但是模型是有效率且精确的。
 - loss
-  ![e5](./imgs/GAN-Survey/e5.png)
+  ![e5](../imgs/GAN-Survey/e5.png)
 - Auto-Encoders中D使用`reconstruction loss` 检查生成的样本与真实样本的相似程度，并指导G生成更多相似样本
 
 - BiGAN(上图b)
@@ -66,9 +66,9 @@
 - progressive(渐进式) GAN，扩展了标准网络的体系结构，思想来自`progressive network`;
 - `Pioneer networks`中将渐进式GAN引入到auto-encoder中进行图像重建;
 - Auxiliary  classifier GAN
-  ![F7.a](./imgs/GAN-Survey/F7.a.png)
+  ![F7.a](../imgs/GAN-Survey/F7.a.png)
   * 为了提高GAN在半监督学习中的性能，在鉴别器中添加一个额外的精确辅助分类器。
   * 其中`C`是auxiliary classifier
 
 #### Adversarial Domain Adaptation
-![F7.b](./imgs/GAN-Survey/F7.b.png)
+![F7.b](../imgs/GAN-Survey/F7.b.png)
