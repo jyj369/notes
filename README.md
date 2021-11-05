@@ -1,22 +1,25 @@
 # notes
 ## 3D
-- [3D Survey](./3D.md)
+- [3D Survey](./3D/3D.md)
 
 ## GAN
-- [GAN Survey](./GAN-Survey.md)
-- [Real-ESRGAN](./Real-ESRGAN.md)
-- [GFPGAN](./GFPGAN.md)
+- [GAN Survey](./GAN/GAN-Survey.md)
+- [Real-ESRGAN](./GAN/Real-ESRGAN.md)
+- [GFPGAN](./GAN/GFPGAN.md)
 
 ## Detection
-- [YOLOX](./YOLOX.md)
-- [OTA](./OTA.md)
-- [UMOP](./UMOP.md)
+- [YOLOX](./Detection/YOLOX.md)
+- [OTA](./Detection/OTA.md)
+- [UMOP](./Detection/UMOP.md)
 
 ## Face Recognition
-- [Face Recognition Formula](./Face_Recognition.md)
+- [Face Recognition Formula](./FaceRecognition/Face_Recognition.md)
 
 ## Face Anti-Spoofing
-- [FAS-Survey](./FAS-Survey.md)
+- [FAS-Survey](./FAS/FAS-Survey.md)
+
+## Metric Learning
+- [DIML](./Metric/DIML.md)
 
 ## Others
 - [tattle](./tattle.md)
