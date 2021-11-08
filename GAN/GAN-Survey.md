@@ -10,6 +10,9 @@
     + [Progressive and Auxiliary Classifier GAN](#progressive-and-auxiliary-classifier-gan)
     + [Adversarial Domain Adaptation](#adversarial-domain-adaptation)
 
+- **paper**: [https://arxiv.org/pdf/2012.13736v1.pdf](https://arxiv.org/pdf/2012.13736v1.pdf) 
+- **code**: [https://github.com/pshams55/GAN-Case-Study](https://github.com/pshams55/GAN-Case-Study) 
+
 
 ## 相关工作
 ### GANs结构与公式

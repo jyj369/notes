@@ -4,6 +4,9 @@
 * [Advanced Designs](#advanced-designs)
 * [实验](#实验)
 
+- **paper**: [https://arxiv.org/pdf/2103.14259v1.pdf](https://arxiv.org/pdf/2103.14259v1.pdf)
+- **code**: [https://github.com/Megvii-BaseDetection/OTA](https://github.com/Megvii-BaseDetection/OTA)
+
 ## pipeline
 ![Fig2](../imgs/yolox/Fig2.png) 
 

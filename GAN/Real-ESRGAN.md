@@ -12,9 +12,8 @@
   + [U-Net discriminator with spectral normalization (SN)](#u-net-discriminator-with-spectral-normalization-sn)
   + [The training process](#the-training-process)
 
-**code**: [https://github.com/xinntao/Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN) 
-
-**paper**: [https://arxiv.org/pdf/2107.10833.pdf](https://arxiv.org/pdf/2107.10833.pdf) 
+- **paper**: [https://arxiv.org/pdf/2107.10833.pdf](https://arxiv.org/pdf/2107.10833.pdf) 
+- **code**: [https://github.com/xinntao/Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN) 
 
 ![F1](../imgs/Real-ESRGAN/F1.png) 
 ### Introduction

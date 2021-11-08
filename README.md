@@ -12,6 +12,9 @@
 - [OTA](./Detection/OTA.md)
 - [UMOP](./Detection/UMOP.md)
 
+## Segmantation
+- [K-Net](./Segmentation/K-Net.md)
+
 ## Face Recognition
 - [Face Recognition Formula](./FaceRecognition/Face_Recognition.md)
 

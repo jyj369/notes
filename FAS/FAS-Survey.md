@@ -6,6 +6,8 @@
       * [基于辅助任务的像素级监督](#基于辅助任务的像素级监督)
       * [基于生成模型的像素级监督](#基于生成模型的像素级监督)
 
+- **paper**: [https://arxiv.org/pdf/2106.14948v1.pdf](https://arxiv.org/pdf/2106.14948v1.pdf) 
+- **code**: [https://github.com/ZitongYu/DeepFAS](https://github.com/ZitongYu/DeepFAS) 
 
 ![F56](../imgs/FAS-Survey/F56.png) 
 

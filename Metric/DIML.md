@@ -1,3 +1,10 @@
+- **paper**: [https://arxiv.org/pdf/2108.05889v1.pdf](https://arxiv.org/pdf/2108.05889v1.pdf)
+- **code**: [https://github.com/wl-zhao/diml](https://github.com/wl-zhao/diml)
+
+## 整体架构
+![F2](../imgs/DIML/F2.png)
+
+
 ## 贡献
 - 与现存的方法不同，现存的方法都是比较特征向量的距离
 - 而该论文的方法还利用了图像空间上的信息来做比较
@@ -43,3 +50,6 @@
 ### Multi-scale Matching(MM)
 - 尽管DIML可以捕获两张图的结构相似度，但是需要更多的计算量(O(H<sup>2</sup>W<sup>2</sup>))去解决最佳运输问题;
 - 为了解决这个问题，首先计算两个特征向量的余弦相似度(1x1 scale)，然后取最高的K个，再来计算结构相似度(H x W scale);
+
+## Visualization
+![F5](../imgs/DIML/F5.png)

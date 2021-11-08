@@ -6,6 +6,10 @@
   - 使用yolox-nano训练新数据，416x416size,转trt之后大概2.3ms左右，占gpu利用率7%(640也是一样), 转trt之前是8/9ms左右，gpu占用率为12%
 
 -------
+
+- **paper**: [https://arxiv.org/pdf/2107.08430v2.pdf](https://arxiv.org/pdf/2107.08430v2.pdf) 
+- **code**: [https://github.com/Megvii-BaseDetection/YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) 
+
 ### YOLOv3 baseline
 在DarkNet53+SPP的结构基础上(YOLOv3+SPP)：
 

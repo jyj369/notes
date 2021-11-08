@@ -12,9 +12,8 @@
   + [Comparison with State of the Art](#comparison-with-state-of-the-art)
   + [Visualization](#visualization)
 
-**code**: [https://github.com/zimoqingfeng/UMOP](https://github.com/zimoqingfeng/UMOP) 
-
-**paper**: [https://arxiv.org/pdf/2109.07217.pdf](https://arxiv.org/pdf/2109.07217.pdf) 
+- **paper**: [https://arxiv.org/pdf/2109.07217.pdf](https://arxiv.org/pdf/2109.07217.pdf) 
+- **code**: [https://github.com/zimoqingfeng/UMOP](https://github.com/zimoqingfeng/UMOP) 
 
 ![F1](../imgs/UMOP/F1.png) 
 

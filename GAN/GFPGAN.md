@@ -17,9 +17,8 @@
   + [degradation model](#degradation-model)
 - [Experiments and More details](#experiments-and-more-details)
 
-**code**: [https://github.com/TencentARC/GFPGAN](https://github.com/TencentARC/GFPGAN) 
-
-**paper**: [https://arxiv.org/pdf/2101.04061.pdf](https://arxiv.org/pdf/2101.04061.pdf) 
+- **paper**: [https://arxiv.org/pdf/2101.04061.pdf](https://arxiv.org/pdf/2101.04061.pdf) 
+- **code**: [https://github.com/TencentARC/GFPGAN](https://github.com/TencentARC/GFPGAN) 
 
 ### Introduction
 #### Face Restoration
