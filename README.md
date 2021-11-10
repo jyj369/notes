@@ -24,6 +24,10 @@
 ## Metric Learning
 - [DIML](./Metric/DIML.md)
 
+## ReID
+- [BOT](./ReID/BoT.md)
+- [Centroids](./ReID/Centroids.md)
+
 ## Video Understanding
 - [TSM](./Understanding/TSM.md)
 
