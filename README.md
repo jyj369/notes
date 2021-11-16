@@ -31,6 +31,9 @@
 ## Video Understanding
 - [TSM](./Understanding/TSM.md)
 
+## Self Supervised Learning
+- [MAE](./SelfSupervisedLearning/MAE.md)
+
 ## Others
 - [tattle](./tattle.md)
 
