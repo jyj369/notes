@@ -34,6 +34,12 @@
 ## Self Supervised Learning
 - [MAE](./SelfSupervisedLearning/MAE.md)
 
+## Surveys
+- [Attention Mechanisms](https://arxiv.org/pdf/2111.07624.pdf)
+- [Visual Transformer](https://arxiv.org/pdf/2111.06091v2.pdf) 
+- [MLP](https://arxiv.org/pdf/2111.04060v3.pdf)
+- [Neural Rendering](https://arxiv.org/pdf/2111.05849v1.pdf)
+
 ## Others
 - [tattle](./tattle.md)
 
