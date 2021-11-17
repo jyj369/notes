@@ -33,6 +33,9 @@
 
 ## Self Supervised Learning
 - [MAE](./SelfSupervisedLearning/MAE.md)
+- [BEiT](./SelfSupervisedLearning/BEiT.md)
+- [IBOT](<++>)
+- [DINO](<++>)
 
 ## Surveys
 - [Attention Mechanisms](https://arxiv.org/pdf/2111.07624.pdf)
