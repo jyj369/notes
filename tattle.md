@@ -142,9 +142,23 @@ if (anchor_matching_gt > 1).sum() > 0:
   * 能够很自然地度量离散分布和连续分布之间的距离；
   * 不仅给出了距离的度量，而且给出如何把一个分布变换为另一分布的方案；
   * 能够连续地把一个分布变换为另一个分布，在此同时，能够保持分布自身的几何形态特征；
+- 公式：
+![o1](./imgs/o1.png)
+  * 其中J是联合分布，P和Q为其边缘分布;
+  * p >= 1, 当p=1时也就是`Earth Mover distance`;
+  * 如果有一个最优运输方案T，则J就是所有运输方案的集合；
+  * \|\|x-y\|\|<sup>p</sup>也就是距离，这个距离也可以是欧几里得距离或者L1距离等；
+  * 前面部分\|\|x-y\|\|<sup>p</sup>就是cost，后面dJ(x,y)就是分配方案;
 - 最小化`Wasserstein Distance`得到最优运输的解；
-- ` Sinkhorn algorithm`(也就是OTA中的最优运输算法)是`Wasserstein Distance`的一种特殊情况, 为的是更快的迭代；
+- 当P和Q的维度d=1、或者是P与Q满足高斯分布的时候存在解；
+- 为了求解该距离，在其后面加上一个正则项:
+![o2](./imgs/o2.png)
+  * 从而可以使用快速迭代的`Sinkhorn algorithm`(也就是OTA中的最优运输算法)算法求解
 - 详情见[http://www.stat.cmu.edu/~larry/=sml/Opt.pdf](http://www.stat.cmu.edu/~larry/=sml/Opt.pdf)
+- 参考
+  * [https://zhuanlan.zhihu.com/p/58506295](https://zhuanlan.zhihu.com/p/58506295)
+  * [https://www.zhihu.com/question/41752299](https://www.zhihu.com/question/41752299)
+  * [https://blog.csdn.net/zsfcg/article/details/112510577#t3](https://blog.csdn.net/zsfcg/article/details/112510577#t3)
 
 ### Sample imbalance
 
