@@ -1,4 +1,7 @@
 # notes
+- `*` means no note but readed.
+- `**` means `todo`
+
 ## 3D
 - [3D Survey](./3D/3D.md)
 
@@ -14,6 +17,9 @@
 
 ## Segmantation
 - [K-Net](./Segmentation/K-Net.md)
+
+## KeyPoint
+- [KaPao(yolov5-based)](https://paperswithcode.com/paper/rethinking-keypoint-representations-modeling)\*
 
 ## Face Recognition
 - [Face Recognition Formula](./FaceRecognition/Face_Recognition.md)
@@ -36,6 +42,8 @@
 - [BEiT](./SelfSupervisedLearning/BEiT.md)
 - [IBOT](./SelfSupervisedLearning/IBOT.md)
 - [DINO](./SelfSupervisedLearning/DINO.md)
+- [Sim MIM](https://arxiv.org/pdf/2111.09886.pdf)\*
+- [Florence](https://paperswithcode.com/paper/florence-a-new-foundation-model-for-computer)\*
 
 ## Surveys
 - [Attention Mechanisms](https://arxiv.org/pdf/2111.07624.pdf)
@@ -45,4 +53,5 @@
 
 ## Others
 - [tattle](./tattle.md)
+- [lama](https://paperswithcode.com/paper/resolution-robust-large-mask-inpainting-with)\*\*
 
