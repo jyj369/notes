@@ -19,7 +19,7 @@
 - [K-Net](./Segmentation/K-Net.md)
 
 ## KeyPoint
-- [KaPao(yolov5-based)](https://paperswithcode.com/paper/rethinking-keypoint-representations-modeling)\*
+- [KaPao(yolov5-based)](./KeyPoint/kapao.md)
 
 ## Face Recognition
 - [Face Recognition Formula](./FaceRecognition/Face_Recognition.md)
@@ -37,6 +37,9 @@
 ## Video Understanding
 - [TSM](./Understanding/TSM.md)
 
+## ImageInpainting
+- [LaMa](./ImageInpainting/lama.md)
+
 ## Self Supervised Learning
 - [MAE](./SelfSupervisedLearning/MAE.md)
 - [BEiT](./SelfSupervisedLearning/BEiT.md)
@@ -53,5 +56,4 @@
 
 ## Others
 - [tattle](./tattle.md)
-- [lama](https://paperswithcode.com/paper/resolution-robust-large-mask-inpainting-with)\*\*
 
