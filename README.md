@@ -54,6 +54,8 @@
 - [MLP](https://arxiv.org/pdf/2111.04060v3.pdf)
 - [Neural Rendering](https://arxiv.org/pdf/2111.05849v1.pdf)
 
+## Architectures
+- [MetaFormer](./Architectures/MetaFormer.md)
+
 ## Others
 - [tattle](./tattle.md)
-
