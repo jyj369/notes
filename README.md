@@ -17,6 +17,7 @@
 
 ## Segmantation
 - [K-Net](./Segmentation/K-Net.md)
+- [Mask2Former](https://paperswithcode.com/paper/masked-attention-mask-transformer-for)\*
 
 ## KeyPoint
 - [KaPao(yolov5-based)](./KeyPoint/kapao.md)
@@ -37,8 +38,11 @@
 ## Video Understanding
 - [TSM](./Understanding/TSM.md)
 
-## ImageInpainting
+## Image Inpainting
 - [LaMa](./ImageInpainting/lama.md)
+
+## Image Matting
+- [RobustVideoMatting](https://paperswithcode.com/paper/robust-high-resolution-video-matting-with)\*
 
 ## Self Supervised Learning
 - [MAE](./SelfSupervisedLearning/MAE.md)
