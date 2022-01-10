@@ -174,3 +174,6 @@ if (anchor_matching_gt > 1).sum() > 0:
 所以yolov5计算损失是按照特征层级来计算的，有些框架是按照batch这个维度来计算损失的；
 mmdetection也是按照特征层的维度计算的；
 
+**Tiny Model**
+- 像`nanodet`以及`yolo-fastest`等模型基本上对于算力充足的GPU而言是访存密集型, 只有对于算力较小的边缘设备或者是CPU才速度更有优势。
+- `yolov5n`(没有depthwise操作)等模型基本上对于算力充足的GPU而言是计算密集型, 对于算力较高的设备速度更有优势。
