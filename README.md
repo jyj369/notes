@@ -14,6 +14,7 @@
 - [YOLOX](./Detection/YOLOX.md)
 - [OTA](./Detection/OTA.md)
 - [UMOP](./Detection/UMOP.md)
+- [Detic](https://paperswithcode.com/paper/detecting-twenty-thousand-classes-using-image)\*
 
 ## Segmantation
 - [K-Net](./Segmentation/K-Net.md)
@@ -60,6 +61,7 @@
 
 ## Architectures
 - [MetaFormer](./Architectures/MetaFormer.md)
+- [ConvNext](./Architectures/ConvNext.md)
 
 ## Others
 - [tattle](./tattle.md)
