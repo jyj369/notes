@@ -118,7 +118,7 @@ JPEG压缩是一种常用的数字图像有损压缩技术。它首先将图像�
 ### Networks and Training
 #### ESRGAN generator
 采用与ESRGAN相同的生成器( SR网络)， 即具有多个residual-in-residual块(RRDB)的深度网络，如图4所示，还扩展了原始的×4ESRGAN架构， 
-以×2和×1的比例因子执行超分辨率。由于ESRGAN是一个较重的网络，首先使用pixel-unshuffle（pixel-unshuffle的逆操作）来减小空间大小和扩大通道大小，
+以×2和×1的比例因子执行超分辨率。由于ESRGAN是一个较重的网络，首先使用pixel-unshuffle（pixel-shuffle的逆操作）来减小空间大小和扩大通道大小，
 然后输入到主ESRGAN体系结构中。因此，大部分的计算是在较小的分辨率空间内进行的，这可以减少GPU内存和计算资源的消耗。
 ![F4](../imgs/Real-ESRGAN/F4.png) 
 
