@@ -1,6 +1,9 @@
 - **paper**: [https://arxiv.org/pdf/2111.08557v2.pdf](https://arxiv.org/pdf/2111.08557v2.pdf)
 - **code**: [https://github.com/wmcnally/kapao](https://github.com/wmcnally/kapao)
 
+- 该方法采用直接检测框并回归关键点的方法，回归人体关键点，同时将各个关键点的位置增加一个小框作为辅助训练
+- 下面的class `0`表示人，其他class表示关键点部位
+
 ## Notes
 - labels(I guess)
   ```vim
